@@ -2,6 +2,7 @@ package phonebook.test;
 
 
 import org.junit.Before;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import phonebook.test.pages.AddContactPage;
 import phonebook.test.pages.ConsultContactPage;
@@ -18,5 +19,22 @@ public class DeleteContactTests extends BaseTest {
         landingPage = new LandingPage(driver);
         addContactPage = new AddContactPage(driver);
         consultContactPage = new ConsultContactPage(driver);
+    }
+
+
+    @Test
+    @DisplayName("Should exclude valid contact")
+    public void shouldExcludeValidContact() {
+        landingPage.open();
+        landingPage.clickAddButton();
+        addContactPage.enterName(faker.name().fullName());
+        addContactPage.enterPhone(faker.phoneNumber().cellPhone());
+        addContactPage.clickCreate();
+        acceptAlert("Contato adicionado com sucesso!");
+        landingPage.open();
+        landingPage.clickConsultButton();
+        consultContactPage.clickFirstDeleteButton();
+        acceptAlert("Tem certeza de que deseja excluir este contato?");
+        acceptAlert("Contato excluído com sucesso!");
     }
 }
