@@ -2,8 +2,6 @@ package phonebook.test;
 
 import org.junit.*;
 
-import static org.hamcrest.CoreMatchers.is;
-
 import org.junit.jupiter.api.DisplayName;
 import org.openqa.selenium.*;
 import phonebook.test.pages.AddContactPage;

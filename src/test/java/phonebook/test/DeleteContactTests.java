@@ -1,9 +1,8 @@
 package phonebook.test;
 
-
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import phonebook.test.pages.AddContactPage;
 import phonebook.test.pages.ConsultContactPage;
 import phonebook.test.pages.LandingPage;
