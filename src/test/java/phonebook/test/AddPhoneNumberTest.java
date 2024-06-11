@@ -26,4 +26,15 @@ public class AddPhoneNumberTest extends BaseTest {
         addContactPage.clickCreate();
         acceptAlert("Contato adicionado com sucesso!");
     }
+
+    @Test
+    @DisplayName("Should not add contact if phone number is invalid")
+    public void shouldNotAddContactIfPhoneNumberIsInvalid() {
+        landingPage.open();
+        landingPage.clickAddButton();
+        addContactPage.enterName(faker.leagueOfLegends().champion());
+        addContactPage.enterPhone(faker.phoneNumber().phoneNumber() + "123");
+        addContactPage.clickCreate();
+        acceptAlert("Número de telefone inválido. Por favor, insira um número válido no formato correto.");
+    }
 }
