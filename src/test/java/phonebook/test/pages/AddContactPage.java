@@ -16,4 +16,7 @@ public class AddContactPage {
         driver.findElement(By.id("tel")).sendKeys(phone);
     }
 
+    public void clickCreate() {
+        driver.findElement(By.cssSelector(".button-create")).click();
+    }
 }
