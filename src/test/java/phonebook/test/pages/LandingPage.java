@@ -13,11 +13,11 @@ public class LandingPage {
         driver.manage().window().maximize();
     }
 
-    public By clickAddButton() {
-        return By.linkText("Adicionar");
+    public void clickAddButton() {
+        driver.findElement(By.linkText("Adicionar")).click();
     }
 
-    public By clickConsultButton() {
-        return By.linkText("Consultar");
+    public void clickConsultButton() {
+        driver.findElement(By.linkText("Consultar")).click();
     }
 }
