@@ -2,6 +2,11 @@ package phonebook.test.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class AddContactPage {
     private WebDriver driver;
@@ -17,6 +22,8 @@ public class AddContactPage {
     }
 
     public void clickCreate() {
-        driver.findElement(By.cssSelector(".button-create")).click();
+        final WebElement button = new WebDriverWait(driver, Duration.ofSeconds(10)) // 10s timeout
+                .until(ExpectedConditions.elementToBeClickable(By.cssSelector(".button-create")));
+        button.click();
     }
 }
