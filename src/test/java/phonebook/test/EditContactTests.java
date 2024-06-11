@@ -42,4 +42,24 @@ public class EditContactTests extends BaseTest {
         consultContactPage.clickFirstReadButton();
         acceptAlert("Contato atualizado com sucesso!");
     }
+
+    @Test
+    @DisplayName("Should edit the phone number of a contact")
+    public void shouldEditThePhoneOfAContact() {
+        landingPage.open();
+        landingPage.clickAddButton();
+        addContactPage.enterName(faker.leagueOfLegends().champion());
+        addContactPage.enterPhone(faker.phoneNumber().cellPhone());
+        addContactPage.clickCreate();
+        acceptAlert("Contato adicionado com sucesso!");
+        landingPage.open();
+        landingPage.clickConsultButton();
+        consultContactPage.clickFirstReadButton();
+        WebElement phoneNumberInput = consultContactPage.getFirstContactPhoneInput();
+        phoneNumberInput.click();
+        phoneNumberInput.clear();
+        phoneNumberInput.sendKeys(faker.phoneNumber().cellPhone());
+        consultContactPage.clickFirstReadButton();
+        acceptAlert("Contato atualizado com sucesso!");
+    }
 }
