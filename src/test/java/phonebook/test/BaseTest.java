@@ -1,6 +1,7 @@
 package phonebook.test;
 
 import com.github.javafaker.Faker;
+import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,5 +16,12 @@ public class BaseTest {
     public void setUp() {
         driver = DriverSetup.getDriver();
         faker = new Faker();
+    }
+
+    @After
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
