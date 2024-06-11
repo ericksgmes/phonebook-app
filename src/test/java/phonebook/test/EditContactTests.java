@@ -31,7 +31,7 @@ public class EditContactTests extends BaseTest {
         addContactPage.clickCreate();
         acceptAlert("Contato adicionado com sucesso!");
         landingPage.open();
-        landingPage.clickAddButton();
+        landingPage.clickConsultButton();
         consultContactPage.clickFirstReadButton();
         WebElement nameInput = consultContactPage.getFirstContactNameInput();
         nameInput.click();
