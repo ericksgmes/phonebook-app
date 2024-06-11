@@ -2,6 +2,11 @@ package phonebook.test.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class LandingPage {
     private WebDriver driver;
@@ -14,10 +19,14 @@ public class LandingPage {
     }
 
     public void clickAddButton() {
-        driver.findElement(By.linkText("Adicionar")).click();
+        final WebElement button = new WebDriverWait(driver, Duration.ofSeconds(10)) // 10s timeout
+                .until(ExpectedConditions.elementToBeClickable(By.linkText("Adicionar")));
+        button.click();
     }
 
     public void clickConsultButton() {
-        driver.findElement(By.linkText("Consultar")).click();
+        final WebElement button = new WebDriverWait(driver, Duration.ofSeconds(10)) // 10s timeout
+                .until(ExpectedConditions.elementToBeClickable(By.linkText("Consultar")));
+        button.click();
     }
 }
