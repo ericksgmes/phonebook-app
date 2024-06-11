@@ -11,4 +11,11 @@ public class ConsultContactPage {
         this.driver = driver;
     }
 
+    public void clickFirstReadButton() {
+        driver.findElement(By.cssSelector("tr:nth-child(1) .button-read:nth-child(1)")).click();
+    }
+
+    public void clickFirstDeleteButton() {
+        driver.findElement(By.cssSelector("tr:nth-child(1) .button-read:nth-child(2)")).click();
+    }
 }
