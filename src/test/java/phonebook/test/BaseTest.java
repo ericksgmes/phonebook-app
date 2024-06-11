@@ -4,11 +4,13 @@ import com.github.javafaker.Faker;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class BaseTest {
     protected WebDriver driver;
@@ -37,5 +39,14 @@ public class BaseTest {
         } catch (NoAlertPresentException e) {
             Assert.fail("Alert not accepted");
         }
+    }
+
+    protected void waitForElementToLoad(By locator) {
+        new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(10))
+                .pollingEvery(Duration.ofMillis(700))
+                .until(ExpectedConditions.elementToBeClickable(locator))
+                .click();
+
     }
 }
