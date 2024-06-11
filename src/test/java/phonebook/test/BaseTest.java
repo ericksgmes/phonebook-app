@@ -41,7 +41,7 @@ public class BaseTest {
         }
     }
 
-    protected void waitForElementToLoad(By locator) {
+    protected void waitForElementToLoad(WebDriver driver, By locator) {
         new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(10))
                 .pollingEvery(Duration.ofMillis(700))
