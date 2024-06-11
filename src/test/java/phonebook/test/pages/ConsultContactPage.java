@@ -18,4 +18,12 @@ public class ConsultContactPage {
     public void clickFirstDeleteButton() {
         driver.findElement(By.cssSelector("tr:nth-child(1) .button-read:nth-child(2)")).click();
     }
+
+    public WebElement getFirstContactPhoneInput() {
+        return driver.findElement(By.cssSelector("td:nth-child(2) > input"));
+    }
+
+    public WebElement getFirstContactNameInput() {
+        return driver.findElement(By.cssSelector("td:nth-child(1) > input"));
+    }
 }
